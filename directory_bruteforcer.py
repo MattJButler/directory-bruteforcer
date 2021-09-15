@@ -1,8 +1,25 @@
+#!/usr/bin/env python
+#
+#
+#   Need to add threads
+#
+#
+
+
+
 import requests
-import os
+
 url = input("Pick a url: ")
-r = requests.get("http://"+url)
+extensions = input("any extensions???")
 
-
-with open(director, "r") as h
-    directories = [ line.strip for line in h.read().split("\n") if line]
+with open("/opt/small.txt","r") as h:
+    h = [ line for line in h.read().split("\n") if line]
+for x in h:
+    if extensions == "":
+        #this code is bad
+        response = requests.get("http://" + url + "/",x)
+    else:
+        #this code is bad
+        response = requests.get("http://" + url + "/",x + "."+extensions) 
+    #need to find a better print format
+    print (x, ":", response)
