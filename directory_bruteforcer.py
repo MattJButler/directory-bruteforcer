@@ -10,7 +10,7 @@
 import requests
 
 url = input("Pick a url: ")
-extensions = input("any extensions???")
+extensions = input("any extensions???") # fix extensions module
 
 with open("/opt/small.txt","r") as h:
     h = [ line for line in h.read().split("\n") if line]
