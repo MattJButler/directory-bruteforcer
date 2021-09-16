@@ -1,25 +1,35 @@
 #!/usr/bin/env python
-#
-#
-#   Need to add threads
-#
-#
-
-
-
+import threading
 import requests
+import argparse
+import sys
+url = sys.argv[1]
+wordlist = sys.argv[2]
+extensions = sys.argv[3]
 
-url = input("Pick a url: ")
-extensions = input("any extensions???") # fix extensions module
 
-with open("/opt/small.txt","r") as h:
+
+print("----------------------------------------------------------")
+print("----------------------------------------------------------")
+print("----------------------------------------------------------")
+print("----------------------------------------------------------")
+print("bruteforcing this url:"+"           "+"["+url+"]")
+print("----------------------------------------------------------")
+print("with this extension:"+"             "+"["+extensions+"]")
+print("----------------------------------------------------------")
+print("with this wordlist:"+"              "+"["+wordlist+"]")
+print("----------------------------------------------------------")
+print("\n \n \n \n") 
+
+
+with open(wordlist,"r") as h:
     h = [ line for line in h.read().split("\n") if line]
 for x in h:
-    if extensions == "":
-        #this code is bad
-        response = requests.get("http://" + url + "/",x)
-    else:
-        #this code is bad
-        response = requests.get("http://" + url + "/",x + "."+extensions) 
-    #need to find a better print format
-    print (x, ":", response)
+    
+    response = requests.get("http://" + url + "/",x + "."+extensions) 
+    
+    
+    print ("/"+x, ":", response)
+  
+        
+
